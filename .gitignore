@@ -13,3 +13,6 @@
 util/1000*
 util/firmware*
 
+build/
+CMakeFiles/
+CMakeCache.txt
