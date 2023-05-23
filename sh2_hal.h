@@ -40,7 +40,7 @@ typedef struct sh2_Hal_s sh2_Hal_t;
 
 // The SH2 interface uses these functions to access the underlying
 // communications device. The system designer will need to
-// implement these.  At system intialization time, an sh2_Hal_t
+// implement these.  At system initialization time, an sh2_Hal_t
 // structure should be initialized with pointers to all the hardware
 // access layer functions.  A pointer to this structure must then be
 // passed to sh2_open() to initialize the SH2 interface.
@@ -72,7 +72,7 @@ struct sh2_Hal_s {
     // time the interrupt was detected, and return the non-zero length
     // of data in this transfer.
     //
-    // If the HAL has not recevied a full SHTP transfer, this function
+    // If the HAL has not received a full SHTP transfer, this function
     // should return 0.
     //
     // Because this function is called regularly, it can be used to

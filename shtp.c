@@ -149,7 +149,7 @@ static int txProcess(shtp_t *pShtp, uint8_t chan, const uint8_t* pData, uint32_t
         pShtp->outTransfer[2] = chan;
         pShtp->outTransfer[3] = pShtp->chan[chan].nextOutSeq++;
 
-        // Stage one tranfer in the out buffer
+        // Stage one transfer in the out buffer
         memcpy(pShtp->outTransfer+SHTP_HDR_LEN, pData+cursor, transferLen);
         remaining -= transferLen;
         cursor += transferLen;
