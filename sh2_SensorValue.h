@@ -30,6 +30,10 @@
 
 #include "sh2.h"
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 /* Note on quaternion naming conventions:
  * Quaternions are values with four real components that are usually
  * interpreted as coefficients in the complex quantity, Q.
@@ -541,5 +545,9 @@ typedef struct sh2_SensorValue {
 } sh2_SensorValue_t;
 
 int sh2_decodeSensorEvent(sh2_SensorValue_t *value, const sh2_SensorEvent_t *event);
+
+#ifdef __cplusplus
+} /* extern "C" */
+#endif
 
 #endif

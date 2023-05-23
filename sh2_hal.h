@@ -25,6 +25,10 @@
 
 #include <stdint.h>
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 // Maximum SHTP Transfer and Payload sizes
 #define SH2_HAL_MAX_TRANSFER_OUT (128)
 #define SH2_HAL_MAX_PAYLOAD_OUT  (128)
@@ -95,6 +99,10 @@ struct sh2_Hal_s {
     // microseconds.  
     uint32_t (*getTimeUs)(sh2_Hal_t *self);
 };
+
+#ifdef __cplusplus
+} /* extern "C" */
+#endif
 
 // End of include guard
 #endif

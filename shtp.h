@@ -27,6 +27,10 @@
 
 #include "sh2_hal.h"
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 typedef enum shtp_Event_e {
     SHTP_SHORT_FRAGMENT = 1,
     SHTP_TOO_LARGE_PAYLOADS = 2,
@@ -65,6 +69,10 @@ int shtp_send(void *pShtp,
 
 // Check for received data and process it.
 void shtp_service(void *pShtp);
+
+#ifdef __cplusplus
+} /* extern "C" */
+#endif
 
 // #ifdef SHTP_H
 #endif

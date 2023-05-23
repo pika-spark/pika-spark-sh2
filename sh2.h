@@ -32,6 +32,10 @@
 
 #include "sh2_hal.h"
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 /***************************************************************************************
  * Public type definitions
  ***************************************************************************************/
@@ -728,5 +732,9 @@ int sh2_reportWheelEncoder(uint8_t wheelIndex, uint32_t timestamp, int16_t wheel
  * @return SH2_OK (0), on success.  Negative value from sh2_err.h on error.
  */
 int sh2_saveDeadReckoningCalNow(void);
+
+#ifdef __cplusplus
+} /* extern "C" */
+#endif
 
 #endif
