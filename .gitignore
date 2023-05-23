@@ -13,6 +13,11 @@
 util/1000*
 util/firmware*
 
+# CMake files
 build/
 CMakeFiles/
 CMakeCache.txt
+
+# CLion files
+.idea/
+cmake-build-debug/
