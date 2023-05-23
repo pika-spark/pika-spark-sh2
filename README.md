@@ -1,14 +1,20 @@
-# SH2 Sensorhub driver for MCU application
+<a href="https://pika-spark.io/"><img align="right" src="https://raw.githubusercontent.com/pika-spark/.github/main/logo/logo-pika-spark-bg-white.png" width="15%"></a>
+:sparkles: `pika-spark-sh2`
+===========================
+[![Smoke test status](https://github.com/pika-spark/pika-spark-sh2/actions/workflows/smoke-test.yml/badge.svg)](https://github.com/pika-spark/pika-spark-sh2/actions/workflows/smoke-test.yml)
+[![Spell Check status](https://github.com/pika-spark/pika-spark-sh2/actions/workflows/spell-check.yml/badge.svg)](https://github.com/pika-spark/pika-spark-sh2/actions/workflows/spell-check.yml)
 
-The files in this repository provide application-level SH2 sensor hub functionality.
+Actively maintained sensor hub driver for interfacing with [BNO085](https://www.ceva-dsp.com/wp-content/uploads/2019/10/BNO080_085-Datasheet.pdf).
 
-To use this code, an application developer will need to:
-* Incorporate this code into a project.
-* Provide platform-level functions, as specified in sh2_hal.h
-* Develop application logic to call the functions in sh2.h
+Made for integration with [`pika-spark-bno085-driver`](https://github.com/pika-spark/pika-spark-bno085-driver), a Linux user space driver for the BNO085 9-DoF IMU driver.
 
-More complete instruction can be found in the User's Guide:
-* [SH2 Library User's Guide](UserGuide.pdf)
+<p align="center">
+  <a href="https://pika-spark.io/"><img src="https://raw.githubusercontent.com/pika-spark/.github/main/logo/logo-pika-spark-bg-white-github.png" width="40%"></a>
+</p>
 
-An example project based on this driver can be found here:
-* [sh2-demo-nucleo](https://github.com/hcrest/sh2-demo-nucleo)
+### How-to-build
+```bash
+git clone https://github.com/107-systems/pika-spark-sh2 && cd pika-spark-sh2
+mkdir build && cd build
+cmake .. && make
+```
