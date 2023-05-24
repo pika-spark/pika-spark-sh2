@@ -98,6 +98,11 @@ struct sh2_Hal_s {
     // microsecond counter.  The count may roll over after 2^32
     // microseconds.  
     uint32_t (*getTimeUs)(sh2_Hal_t *self);
+
+    // User pointer that can link this instance with other objects.
+    // This field can be changed arbitrarily, the library does not access it after initialization.
+    // The default value is NULL.
+    void * user_reference;
 };
 
 #ifdef __cplusplus
