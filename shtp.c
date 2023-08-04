@@ -397,8 +397,26 @@ void shtp_service(void *pInstance)
     shtp_t *pShtp = (shtp_t *)pInstance;
     uint32_t t_us = 0;
 
-    int len = pShtp->pHal->read(pShtp->pHal, pShtp->inTransfer, sizeof(pShtp->inTransfer), &t_us);
-    if (len) {
-        rxAssemble(pShtp, pShtp->inTransfer, len, t_us);
+    /* Read the header. */
+    unsigned const SH2_HEADER_LENGTH = 4;
+    int const len_hdr = pShtp->pHal->read(pShtp->pHal, pShtp->inTransfer, SH2_HEADER_LENGTH, &t_us);
+    if (len_hdr) {
+      rxAssemble(pShtp, pShtp->inTransfer, len_hdr, t_us);
+    } else {
+      return;
+    }
+
+    /* Determine payload size. */
+    unsigned const payload_size =
+      ((unsigned)(pShtp->inTransfer[0]) | (unsigned)(pShtp->inTransfer[1]) << 8) & 0x7FFF;
+
+    /* Check that we are not exceeding the available memory. */
+    if (payload_size > sizeof(pShtp->inTransfer))
+      return;
+
+    /* Read the payload. */
+    int const len_payload = pShtp->pHal->read(pShtp->pHal, pShtp->inTransfer, payload_size, &t_us);
+    if (len_payload) {
+        rxAssemble(pShtp, pShtp->inTransfer, len_payload, t_us);
     }
 }
